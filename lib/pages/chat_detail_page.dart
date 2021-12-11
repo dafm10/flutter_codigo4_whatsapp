@@ -121,7 +121,18 @@ class _ChatDetailState extends State<ChatDetail> {
                             Icons.attach_file,
                             color: Color(0xff767676),
                             size: 28.0,
-                          )),
+                          ),
+                      ),
+                      onSubmitted: (String value){
+                        messages.add(
+                          ChatMessage(
+                            messageContent: _textMessageController.text,
+                            messageType: "me",
+                          ),
+                        );
+                        _textMessageController.clear();
+                        setState(() {});
+                      },
                     ),
                   ),
                 ),
