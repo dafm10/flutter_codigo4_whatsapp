@@ -68,7 +68,7 @@ class ItemChatUser extends StatelessWidget {
                             borderRadius: BorderRadius.circular(30.0)),
                         child: Text(
                           chat.countMessage.toString(),
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.white, fontWeight: FontWeight.bold),
                         ),
                       )

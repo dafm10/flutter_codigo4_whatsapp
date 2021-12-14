@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo4_whatsapp/data/data_dummy.dart';
 
 class StatusPage extends StatelessWidget {
   const StatusPage({Key? key}) : super(key: key);
@@ -50,22 +51,22 @@ class StatusPage extends StatelessWidget {
             ListView.builder(
               shrinkWrap: true, // deja el scroll al Widget Padre
               physics: ScrollPhysics(), // habilita el scroll interno
-              itemCount: 5,
+              itemCount: statusUser.length,
               itemBuilder: (context, index){
                 return  ListTile(
                   leading: CircleAvatar(
                     radius: 30,
                     backgroundImage: NetworkImage(
-                        "https://images.pexels.com/photos/747964/pexels-photo-747964.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"),
+                        statusUser[index].avatarUrl),
                   ),
                   title: Text(
-                    "Rocio Durán",
+                    statusUser[index].nameUser,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   subtitle: Text(
-                      "15 minutes ago"
+                      statusUser[index].time,
                   ),
                 );
               },
@@ -79,31 +80,29 @@ class StatusPage extends StatelessWidget {
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
             ),
-
             ListView.builder(
               shrinkWrap: true,
               physics: ScrollPhysics(),
-              itemCount: 5,
+              itemCount: statusViewUser.length,
               itemBuilder: (context, index){
                 return  ListTile(
                   leading: CircleAvatar(
                     radius: 30,
                     backgroundImage: NetworkImage(
-                        "https://images.pexels.com/photos/747964/pexels-photo-747964.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"),
+                        statusViewUser[index].avatarUrlView),
                   ),
                   title: Text(
-                    "Rocio Durán",
+                    statusViewUser[index].nameUserView,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   subtitle: Text(
-                      "15 minutes ago"
+                      statusViewUser[index].timeView,
                   ),
                 );
               },
             ),
-
           ],
         ),
       ),
